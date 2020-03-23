@@ -1,0 +1,4 @@
+a=nums.count(val)
+for i in range(a):
+  nums.remove(val)
+return len(nums)
