@@ -1,0 +1,16 @@
+    A=list(A)
+    B=list(B)
+    if(len(A)!=len(B)):
+        return 'false'
+    c=0
+    d=0
+    for i in range(len(A)):
+        if(A[i-d]==B[i-d]):
+            A.pop(i-d)
+            B.pop(i-d)
+            d+=1
+        elif(A[i-d]!=B[i-d]):
+            c+=1
+    if(A==B[::-1] and c==2):
+        return 'true'
+    return 'false
