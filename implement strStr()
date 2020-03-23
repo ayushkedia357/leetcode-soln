@@ -1,0 +1,23 @@
+#code1
+        for i in range(len(haystack)-len(needle)+1):
+            if(needle!=''):
+                if((haystack[i]==needle[0])):
+                    a=haystack[i:(i+len(needle))]
+                    if a==needle:
+                        return i
+        if(len(needle)==0 or needle==haystack):
+            return 0
+        return -1
+#code2
+        c=0
+        for i in range(len(haystack)-len(needle)+1):
+            for j in range(len(needle)):
+                if(haystack[i+j]==needle[j]):
+                    c+=1
+                else:
+                    break
+            if(c==len(needle)):
+                return i
+            else:
+                c=0
+        return -1
