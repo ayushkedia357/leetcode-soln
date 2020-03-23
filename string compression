@@ -1,0 +1,14 @@
+        l=[]
+        a=[]
+        for j in chars:
+            if j not in a:
+                a.append(j)
+        for i in a:
+            f=chars.count(i)
+            if f==1:
+                l.append(i)
+            else:
+                l.append(i)
+                f=str(f)
+                l.append(f)
+        return len(l)
