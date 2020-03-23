@@ -1,0 +1,16 @@
+ if len(height)==2:
+            return min(height)
+        area=0
+        a=0
+        b=len(height)-1
+        for i in range(len(height)):
+            width=int(((a-b)**2)**0.5)
+            if(height[a]>height[b]):
+                area1=height[b]*width
+                b-=1
+            else:
+                area1=height[a]*width
+                a+=1
+            if area1>area:
+                area=area1
+        return area
