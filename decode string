@@ -1,0 +1,31 @@
+        if s=="":
+            return ""
+        l=[]
+        l1=[]
+        t=""
+        m=""
+        for i in s:
+            if i.isdigit():
+                m+=i
+            elif i=='[':
+                l.append(int(m))
+                l1.append(t)
+                t=""
+                m=""
+            elif i.isalpha():
+                t+=i
+            elif i==']':
+                if t!="":
+                    l1.append(t)
+                f=l[-1]*l1[-1]
+                l.pop()
+                l1.pop()
+                l1[-1]+=f
+                t=""
+        if s[-1]!=']':
+            l1.append(t)
+        #return l1[-1]
+        final=""
+        for j in l1:
+            final+=j
+        return final
