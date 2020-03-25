@@ -1,0 +1,7 @@
+        l=nums1+nums2
+        l.sort()
+        a=len(l)
+        if(a%2==1):
+            return float(l[a//2])
+        else:
+            return float(l[a//2]+l[a//2-1])/float(2)
