@@ -1,0 +1,15 @@
+       if digits[-1]!=9:
+            digits[-1]+=1
+            return digits
+        for i in range(len(digits)-1,-1,-1):
+            #return [i]
+            digits[i]+=1
+            if digits[i]==10:
+                if i==0:
+                    digits[i]=1
+                    digits.append(0)
+                else:
+                    digits[i]=0
+            else:
+                return digits
+        return digits
