@@ -1,0 +1,15 @@
+    d=len(nums)
+    for i in range(d):
+        if nums[i]==0:
+            break
+        j=i
+        while(j<d-1):
+            if nums[j]==0:
+                break
+            else:
+                j+=nums[j]
+                if(j>d-1):
+                    j=d-1
+        if(nums[j]!=0):
+            return 'true'
+    return 'false'
