@@ -1,0 +1,61 @@
+def rec(r,s,mc,bc):
+    if [r,s] in mc:
+        return 1
+    elif((r==8 or s==8) and (r==0 or s==8) and (r==8 or s==0) and (r==0 or s==0)):
+        return 34545
+    if (bc[r][s]!='P'):
+        rec(r+1,s+1)
+        rec(r-1,s+1)
+        rec(r-1,s-1)
+        rec(r+1,s-1)
+a=int(input())
+for i in range(a):
+    b=int(input())
+    l=[]
+    for j in range(8):
+        l1=input().split(' ')
+        l.append(l1)
+    for i in l:
+        if 'K' in i:
+            lk=[l.index(i),i.index('K')]
+    for i in l:
+        if 'P' in i:
+            lp=[l.index(i),i.index('P')]
+    l2=[]
+    i=lk[0]
+    j=lk[1]
+    while(i<8 and j<8):
+        if l[i][j]=='P':
+            break
+        i+=1
+        j+=1
+        l2.append([i,j])
+    i=lk[0]
+    j=lk[1]
+    while(i>0 and j<8):
+        if l[i][j]=='P':
+            break
+        i-=1
+        j+=1
+        l2.append([i,j])
+    i=lk[0]
+    j=lk[1]
+    while(i<0 and j<0):
+        if l[i][j]=='P':
+            break
+        i-=1
+        j-=1
+        l2.append([i,j])
+    i=lk[0]
+    j=lk[1]
+    while(i<8 and j<0):
+        if l[i][j]=='P':
+            break
+        i+=1
+        j-=1
+        l2.append([i,j])
+    az=rec(lp[0],lp[1],l2,l)
+    if(az==1):
+        print('TES')
+    else:
+        print('NO')
