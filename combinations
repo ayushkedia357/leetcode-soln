@@ -1,0 +1,21 @@
+        import random
+        l1=[j for j in range(1,n+1)]
+        l=[]
+        f1=1
+        f2=1
+        f3=1
+        for i in range(1,n+1):
+            f1 = f1 * i
+        for i in range(1,k+1):
+            f2 = f2 * i
+        for i in range(1,n-k+1):
+            f3 = f3 * i
+        m=f1/(f2*f3)
+        i=0
+        while(i<m):
+            kk=random.sample(l1,k)
+            kk.sort()
+            if kk not in l:
+                l.append(kk)
+                i+=1
+        return l
