@@ -1,0 +1,17 @@
+        if prices==[]:
+            return 0
+        l2=prices
+        i=0
+        max1=0
+        day=0
+        while(i>=0):
+            if len(l2)==1:
+                return max1
+            if l2[i]==max(l2):
+                l2.pop(i)
+            else:
+                l1=l2[i+1:]
+                max2=max(l1)-l2[i]
+                if max2>max1:
+                    max1=max2
+                l2.pop(i)
