@@ -1,0 +1,10 @@
+        a=nums[0]
+        b=nums[0]
+        for i in nums[1:]:
+            if a+i>i:
+                a+=i
+            else:
+                a=i
+            if a>b:
+                b=a
+        return b
