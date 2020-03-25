@@ -1,0 +1,18 @@
+        #code1
+        s=set(nums)
+        l=list(s)
+        l1=nums
+        for i in l:
+            l1.remove(i)
+        s1=set(l1)
+        l2=list(s-s1)
+        return l2[0]
+        
+        #code2
+        l=[]
+        for i in nums:
+            if i not in l:
+                l.append(i)
+            elif i in l:
+                l.remove(i)
+        return l[0]
