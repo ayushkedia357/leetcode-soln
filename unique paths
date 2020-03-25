@@ -1,0 +1,6 @@
+        def abcd(i,j):
+            if i==0 or j==0:
+                return 1
+            if i<m and j<n:
+                return abcd(i-1,j)+abcd(i,j-1)
+        return abcd(m-1,n-1)
