@@ -1,0 +1,16 @@
+        b="1"
+        c=b
+        for i in range(n-1):
+            d=0
+            c=b[0]
+            a=""
+            for j in b:
+                if j!=c:
+                    a=a+str(d)+c
+                    d=1
+                elif j==c:
+                    d+=1
+                c=j
+            a=a+str(d)+c
+            b=a
+        return b
