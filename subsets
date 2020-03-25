@@ -1,0 +1,6 @@
+        l=[[]]
+        for i in nums:
+            for j in range(len(l)):
+                m=l[j]+[i]
+                l.append(m)
+        return l
