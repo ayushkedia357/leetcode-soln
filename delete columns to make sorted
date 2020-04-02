@@ -1,0 +1,10 @@
+        d=0
+        c=len(A[0])
+        for i in range(c):
+            b=A[0][i]
+            for j in range(len(A)):
+                if A[j][i]<b:
+                    d+=1
+                    break
+                b=A[j][i]
+        return d
