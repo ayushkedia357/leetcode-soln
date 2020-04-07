@@ -1,0 +1,11 @@
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1=set(nums1)
+        nums2=set(nums2)
+        l=max(nums1,nums2)
+        l1=min(nums2,nums1)
+        l3=[]
+        for i in l:
+            if i in l1:
+                l3.append(i)
+        return l3
