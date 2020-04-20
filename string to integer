@@ -1,0 +1,37 @@
+class Solution:
+    def myAtoi(self, str1: str) -> int:
+        l=""
+        o=0
+        oo=0
+        ooo=0
+        for i in str1:
+            if(i=='0' and o==0):
+                ooo=1
+                continue
+            elif(i.isdigit()==1):
+                ooo=1
+                o=1
+                l+=i
+            elif(i=='-'):
+                if(oo==1 or ooo==1):
+                    break
+                oo=1
+                l+=i
+            elif(i==" "):
+                if (o==1 or oo==1 or ooo==1):
+                    break
+                continue
+            elif(i=="+"):
+                if(oo==1):
+                    break
+                oo=1
+            else:
+                break
+        if l=="" or l=="-":
+            return 0
+        elif(int(l)>=(2**31-1)):
+            return 2**31-1
+        elif(int(l)<=-(2**31)):
+            return -(2**31)
+        o=0
+        return int(l)
