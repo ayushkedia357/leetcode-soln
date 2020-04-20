@@ -1,0 +1,18 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        l=[]
+        if numRows==0:
+            return l
+        l.append([1])
+        if(numRows==1):
+            return l
+        else:
+            numRows-=1
+            for i in range(numRows):
+                ll=[]
+                if(len(l[-1])>1):
+                    for j in range(len(l[-1])-1):
+                        #print(ll)
+                        ll.append(l[-1][j]+l[-1][j+1])
+                l.append([1]+ll+[1])
+            return l
