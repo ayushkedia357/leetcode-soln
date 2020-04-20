@@ -1,0 +1,40 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        '''
+        ele=0
+        for i in range(len(nums)-1):
+            print(nums[i])
+            ele=target-nums[i]
+            print(ele)
+            b=nums[i+1:]
+            a=sorted(b)
+            s=0
+            t=0
+            e=len(a)-1
+            while(e>=s):
+                m=(e+s)//2
+                if(a[m]==ele):
+                    t=1
+                    break
+                elif(a[m]>ele):
+                    e=m-1
+                else:
+                    s=m+1
+            if(t==1):
+                return [i,b.index(ele)+i+1]
+        '''
+        '''
+        s=0
+        for i in range(len(nums)-1):
+            s=target-nums[i]
+            if s in nums[i+1:]:
+                return [i,nums[i+1:].index(s)+i+1]
+        '''
+        s=0
+        l=[]
+        for i in range(len(nums)):
+            s=target-nums[i]
+            if s in l:
+                return [i,l.index(s)]
+            else:
+                l.append(nums[i])
