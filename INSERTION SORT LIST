@@ -1,0 +1,27 @@
+ if(!head)
+        return head;
+    struct ListNode *temp=head,*temp1=head->next,*temp2=head;
+    while(temp1!=NULL){
+        if(temp1->val<temp2->val)
+            temp2=temp;
+        
+        while(temp2!=temp1 && temp1->val>=temp2->val){
+            temp2=temp2->next;
+        }
+        
+        int tt= temp1->val;
+        
+        while(temp2!=temp1){
+            int t =temp2->val;
+            temp2->val=tt;
+            tt=t;
+            temp2=temp2->next;
+        }
+        
+        temp1->val=tt;
+        temp1=temp1->next;
+        
+    }
+    return head;
+}
+
