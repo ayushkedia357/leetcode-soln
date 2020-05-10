@@ -1,0 +1,97 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
+    struct ListNode *temp=l1,*temp1=NULL,*temp2;
+    struct ListNode *temp3=l2,*temp4=NULL,*temp5;
+    int len1=0,len2=0;
+    while(temp!=NULL){
+        len1++;
+		temp2=temp->next;
+		temp->next=temp1;
+		temp1=temp;
+		temp=temp2;
+	}
+	l1=temp1;
+    while(temp3!=NULL){
+        len2++;
+		temp5=temp3->next;
+		temp3->next=temp4;
+		temp4=temp3;
+		temp3=temp5;
+	}
+	l2=temp4;
+    temp1=l1;
+	temp2=l2;
+    if(len1>len2)
+        temp3=l1;
+    else
+        temp3=l2;
+	int carry=0,i=1,sum=0;
+	while(temp1!=NULL && temp2!=NULL){
+        //temp3=temp1;
+        if(len1>=len2)
+            temp3=temp1;
+        else
+            temp3=temp2;
+		sum=carry+temp1->val+temp2->val;
+		//printf("%d ",sum);
+		temp3->val=sum%10;
+		carry=sum/10;
+		//i++;
+		sum=0;
+		temp1=temp1->next;
+		temp2=temp2->next;
+	}
+    if(len1>len2){
+        while(temp1!=NULL){
+            temp3=temp1;
+            sum=carry+temp1->val;
+            temp3->val=sum%10;
+            carry=sum/10;
+            i++;
+            sum=0;
+            temp1=temp1->next;
+	    }
+    }
+    else{
+        while(temp2!=NULL){
+            temp3=temp2;
+            sum=carry+temp2->val;
+            temp3->val=sum%10;
+            carry=sum/10;
+            i++;
+            sum=0;
+            temp2=temp2->next;
+        }
+    }
+	if(carry){
+		struct ListNode *t;
+        t=(struct ListNode*)malloc(sizeof(struct ListNode));
+        t->val=carry;
+        t->next=NULL;
+        temp3->next=t;
+	}
+    //return l1;
+    if(len1>=len2)
+        temp3=l1;
+    else
+        temp3=l2;
+    temp=temp3;
+    temp1=NULL;
+    while(temp!=NULL){
+		temp2=temp->next;
+		temp->next=temp1;
+		temp1=temp;
+		temp=temp2;
+	}
+    //return l1;
+    l1=temp1;
+    return l1;
+}
