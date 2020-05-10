@@ -1,0 +1,40 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* nextLargerNodes(struct ListNode* head, int* returnSize){
+    struct ListNode* temp=head;
+    struct ListNode* temp1=head;
+    int *p=(int*)malloc(1*sizeof(int));
+    temp=head;
+    int j=1;
+    int i=0;
+    while(temp!=NULL){
+        temp1=temp->next;
+        while(temp1!=NULL && temp->val>=temp1->val){
+            temp1=temp1->next;
+        }
+        if(temp1!=NULL){
+            if(i>0)
+                p=(int*)realloc(p,j*sizeof(int));
+            *(p+i)=temp1->val;
+        }
+        else
+            if(i>0)
+                p=(int*)realloc(p,j*sizeof(int));
+            *(p+i)=0;
+        temp=temp->next;
+        i++;
+    }
+    *returnSize=i;
+    return p;
+}
+
