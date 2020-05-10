@@ -1,0 +1,24 @@
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        tempk=k
+        l=[]
+        start=0
+        end=0
+        windowmax=-2^31
+        while(end<len(nums)):
+            if(nums[end]>windowmax):
+                windowmax=nums[end]
+            tempk-=1
+            while(tempk==0):
+                l.append(windowmax)
+                if(windowmax!=nums[start]):
+                    tempk+=1
+                    start+=1
+                    continue
+                tempk=k
+                print(start,end)
+                end=end-k+1
+                windowmax=-2^31
+                start+=1
+            end+=1
+        return l
