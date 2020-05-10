@@ -1,0 +1,33 @@
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        '''
+        ## METHOD 1//BRUTE FORCE
+        l=sorted(letters)
+        i=0
+        k=len(l)
+        while (target)>=(l[i]) and i<k-1:
+            i+=1
+        if i==k-1 and (target)>=(l[i]):
+            return l[0]
+        return l[i]
+        '''
+        ## METHOD-2 //BINARY SEARCH
+        if(ord(target)<ord(letters[0])):
+            return letters[0]
+        start=0
+        end=len(letters)-1
+        while(start+1<end):
+            mid=(start+end)//2
+            if(letters[mid]==target):
+                start=mid
+            elif(ord(letters[mid])>ord(target)):
+                end=mid
+            else:
+                start=mid
+        print(start,end)
+        if(ord(letters[start])>ord(target)):
+            return letters[start]
+        elif(ord(letters[end])>ord(target)):
+            print(end)
+            return letters[end]
+        return letters[(end+1)%len(letters)]
