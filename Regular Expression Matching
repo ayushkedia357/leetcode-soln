@@ -1,0 +1,19 @@
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        l=[0]*len(s)
+        j=0
+        i=0
+        while(j+1<len(p) and i<len(s)):
+            if(a[i]==p[j] or p[j]=="."):
+                l[i]=1
+                i+=1
+                j+=1
+            else:
+                j+=1
+                if(p[j]=="*"):
+                    while(s[i]==p[j]):
+                        l[i]=1
+                        i+=1
+                else:
+                    
+                
