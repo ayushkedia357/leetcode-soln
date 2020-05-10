@@ -1,0 +1,26 @@
+int numComponents(struct ListNode* head, int* G, int GSize){
+    struct ListNode *temp=head,*temp1=head;
+    int i=GSize,k=0,t=head->val;
+    while(temp!=NULL){
+        int j=0;
+        while(j<GSize && temp->val!=*(G+j)){
+            //printf("%d",*(G+j));
+            j++;
+        }
+        if(j==GSize){
+            //printf("qwert");
+            k=0;
+            temp=temp->next;
+            continue;
+        }
+        if(temp!=head && temp1->val==t && k==1){
+            i--;
+            //printf("qwert");
+        }
+        k=1;
+        t=temp->val;
+        temp1=temp;
+        temp=temp->next;
+    }
+    return i;
+}
