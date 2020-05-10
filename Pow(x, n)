@@ -1,0 +1,21 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        if(n==0):
+            return 1
+        power=1
+        temp=x
+        i=1
+        newn=abs(n)
+        #newn=1
+        while(newn>0):
+            print(newn)
+            if(newn%2!=0):
+                power=power*temp
+                if(newn==1):
+                    break
+            temp=temp*temp
+            print(power)
+            newn=newn//2
+        if(n<0):
+            return 1/power
+        return power
