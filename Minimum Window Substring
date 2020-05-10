@@ -1,0 +1,28 @@
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if(len(s)<len(t)):
+            return ""
+        dic1={}
+        for i in t:
+            dic1[i]=dic1.get(i,0)+1
+        tlen=len(t)
+        start=0
+        startfinal=len(s)
+        minl=len(s)+1
+        for end in range(len(s)):
+            if s[end] in dic1:
+                dic1[s[end]]-=1
+                if(dic1[s[end]]>=0):
+                    tlen-=1
+            while(tlen==0):
+                #print(start,minl,end)
+                if(minl>end-start+1):
+                    minl=end-start+1
+                    startfinal=start
+                if s[start] in dic1:
+                    dic1[s[start]]+=1
+                    if(dic1[s[start]]>0):
+                        tlen+=1
+                start+=1
+        #print(startfinal,minl)
+        return s[startfinal:startfinal+minl]
