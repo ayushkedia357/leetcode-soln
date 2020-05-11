@@ -1,0 +1,24 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        l=[]
+        m=1
+        for i in s:
+            if i=='(' or i=='{' or i=='[':
+                l.append(i)
+            elif(i==')'):
+                if l==[] or l[-1]!='(':
+                    return bool(0)
+                else:
+                    l.pop(-1)
+            elif(i=='}'):
+                if l==[] or l[-1]!='{':
+                    return bool(0)
+                else:
+                    l.pop(-1)
+            elif(i==']'):
+                if l==[] or l[-1]!='[':
+                    return bool(0)
+                else:
+                    l.pop(-1)
+        if m==1 and l==[]:
+            return bool(1)
