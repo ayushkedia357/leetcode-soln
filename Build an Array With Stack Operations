@@ -1,0 +1,18 @@
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+
+        operation=[]
+        push="Push"
+        pop="Pop"
+        i=0;
+        j=1
+        while(i<len(target)):
+            if(target[i]==j):
+                operation.append(push)
+                i+=1
+                j+=1
+            else:
+                operation.append(push)
+                operation.append(pop)
+                j+=1
+        return operation
