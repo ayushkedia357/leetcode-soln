@@ -1,0 +1,21 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        pillar=0
+        i=1
+        stack=[]
+        water=0
+        while(i<len(height)):
+            print(water)
+            while(i<len(height) and height[i]<height[pillar]):
+                stack.append(height[i])
+                i+=1
+            if(i==len(height)):
+                i=pillar+1
+                height[pillar]=max(stack)
+                stack=[]
+                continue
+            while(stack!=[]):
+                water=water+(height[pillar]-stack.pop())
+            pillar=i
+            i+=1
+        return water
