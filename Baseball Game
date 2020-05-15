@@ -1,0 +1,21 @@
+class Solution:
+    def calPoints(self, ops: List[str]) -> int:
+        stack=[]
+        score=0
+        for i in ops:
+            if i=='D':
+                temp=2*stack[-1]
+                score+=temp
+                stack.append(temp)
+            elif i=="+":
+                temp=stack[-1]+stack[-2]
+                score+=temp
+                stack.append(temp)
+            elif i=='C':
+                temp=stack.pop()
+                score-=temp
+            else:
+                j=int(i)
+                score+=j
+                stack.append(j)
+        return score
