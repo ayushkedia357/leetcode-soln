@@ -1,0 +1,36 @@
+class Solution:
+    def decodeString(self, s: str) -> str:
+        stack=[]
+        ktimes=[]
+        decode=""
+        i=0
+        while(i<len(s)):
+            if s[i]=='[':
+                stack.append(s[i])
+    
+            elif(s[i]==']'):
+                temp=""
+                k=''
+                while(k!='['):
+                    temp=k+temp
+                    k=stack.pop()
+                print(temp)
+                if stack:
+                    stack.append(temp*ktimes.pop())
+                else:
+                    decode+=(temp*ktimes.pop())
+            elif s[i].isdigit():
+                temp=''
+                while(s[i].isdigit()):
+                    temp+=s[i]
+                    i+=1
+                ktimes.append(int(temp))
+                continue
+            else:
+                if stack:
+                    stack.append(s[i])
+                else:
+                    decode+=s[i]
+                    
+            i+=1
+        return decode
